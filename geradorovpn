@@ -1,0 +1,21 @@
+#!/bin/bash
+touch $1.ovpn
+printf '%sclient
+remote <servidor remoto> <porta>
+dev tun
+proto <protocolo>
+comp-lzo yes
+persist-tun
+persist-key\n' >> $1.ovpn
+
+echo "<ca>" >> $1.ovpn
+cat ca.crt >> $1.ovpn
+echo "</ca>" >> $1.ovpn
+
+echo "<cert>" >> $1.ovpn
+cat $1.crt >> $1.ovpn
+echo "</cert>" >> $1.ovpn
+
+echo "<key>" >> $1.ovpn
+cat $1.key >> $1.ovpn
+echo "</key>" >> $1.ovpn
