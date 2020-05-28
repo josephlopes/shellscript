@@ -1,4 +1,6 @@
 #!/bin/bash
+#Salve esse arquivo como geradorovpn.sh e execute o comando "chmod +x geradorovpn.sh"
+#Modo de execução: ./geradorovpn.sh <nome-do-certificado>
 touch $1.ovpn
 printf '%sclient
 remote <servidor remoto> <porta>
